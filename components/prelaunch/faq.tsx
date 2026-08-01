@@ -7,28 +7,32 @@ import {
 
 const faqs: [string, string][] = [
   [
-    "What exactly is Canary?",
-    "Canary Core is a sealed device that reads your vehicle's CAN bus and classifies abuse the instant it happens — donuts, redline launches, harsh braking, overspeed, impact and tamper — then sends the event with the evidence behind it. Built for fleets, rentals and owners who need to know what happened, not guess.",
+    "What is Canary?",
+    "A small device that installs behind the dash. It watches how the car is being driven and what happens to it, then tells you — on your phone, in seconds. Where it is, how it's being treated, and whether anyone is interfering with it.",
   ],
   [
-    "What counts as an abuse event?",
-    "Anything the Core can prove off the bus and the IMU: sustained wheel-spin and yaw (donuts), full-throttle redline launches, hard braking or acceleration, speed over a set limit, sharp g-force spikes from impacts or curb strikes, and tamper attempts like a harness pull or power loss.",
+    "What does it actually catch?",
+    "Burnouts, donuts, launches, hard stops, impacts, speeding, drifting, missed gears — the things that wear a car out or write it off. Plus the things that aren't about driving at all: the car moving when it shouldn't be, being towed, or someone trying to unplug Canary itself.",
   ],
   [
-    "Does it need cell coverage to work?",
-    "No. Detection runs on the Core itself, at the edge — so it keeps classifying events in tunnels, garages and dead zones where cloud-based trackers go blind. It reports as soon as it has a connection, and falls back to its own backup path if the vehicle's power is cut.",
+    "Does it need cell service?",
+    "No. Canary works out what happened inside the car itself, so it keeps catching things in tunnels, underground garages and dead zones where ordinary trackers go blind. Everything it saw gets sent the moment it has signal again.",
   ],
   [
-    "How is the evidence trustworthy?",
-    "Every event ships with the CAN frames, GPS trace and g-force curve that triggered it — cross-checked against multiple signals, not a single guess. Disputes end at the data instead of one person's word against another's.",
+    "Can someone just unplug it?",
+    "They can try. Canary runs on its own battery when the car's power is cut, so pulling it is itself an alert — you get told where the car was the second before it went dark, and it keeps recording after.",
+  ],
+  [
+    "How do I know what it tells me is true?",
+    "Everything comes from the car's own sensors, cross-checked against each other rather than resting on any one reading. Each alert is signed by the device that recorded it, so it can't be altered afterwards — not by a driver, and not by us.",
   ],
   [
     "Is it hard to install?",
-    "No. It's one sealed connector to the harness — no splicing, no dealer visit. Additional Nodes, like the Starter Immobilizer, pair over the same connector whenever you add them.",
+    "No. One connector, no splicing, no dealer visit. Anything you add later — like the remote engine cutoff — plugs into the same connector.",
   ],
   [
-    "When does it ship, and how do I get early access?",
-    "Canary is in private preview. Join the waitlist and we'll reach out with early-access details and timing for your fleet, rental operation or vehicle.",
+    "What does it cost, and when can I get one?",
+    "Canary is in private preview, so pricing isn't public yet. Join the waitlist and tell us whether it's for your own car, your rentals or a fleet — we'll come back to you with early-access pricing and timing.",
   ],
 ];
 

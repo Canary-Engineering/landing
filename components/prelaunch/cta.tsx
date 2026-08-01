@@ -9,7 +9,8 @@ export function PreLaunchCTA() {
           <span className="font-normal italic">out there.</span>
         </h2>
         <p className="mx-auto mt-8 max-w-xl text-lg text-muted-foreground">
-          Built for fleets, rentals &amp; owners · edge-detected · evidence-backed.
+          Canary is in private preview. Tell us whether it&apos;s for your car, your
+          rentals or your fleet, and we&apos;ll get you in early.
         </p>
         <div className="mt-10 flex items-center justify-center">
           <WaitlistModalButton className="h-11 px-6 text-[15px]" />

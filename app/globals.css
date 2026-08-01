@@ -171,6 +171,39 @@ body {
   to { stroke-dashoffset: 0; }
 }
 
+/* Hero rotating noun ("see every <redline|burnout|donut…>"). The outgoing word is
+   taken out of flow so only the incoming one sizes the slot — the slot sits alone
+   on its own line in the h1, so the width change lands on empty space and nothing
+   below it moves. Blur-and-lift rather than a clipped roll: no descender clipping,
+   and it stays on the compositor. */
+.canary-word-slot {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.canary-word-in {
+  display: inline-block;
+  animation: canary-word-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.canary-word-out {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: canary-word-out 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes canary-word-in {
+  from { opacity: 0; transform: translateY(0.42em); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);      filter: blur(0); }
+}
+@keyframes canary-word-out {
+  from { opacity: 1; transform: translateY(0);       filter: blur(0); }
+  to   { opacity: 0; transform: translateY(-0.42em); filter: blur(6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .canary-word-in { animation: none; }
+  .canary-word-out { display: none; }
+}
+
 /* Footer brand signature. The wordmark is real outlines — /canary-wordmark.svg,
    generated from the Neue Haas Medium wordmark cut — used as a mask, with a
    fixed-pitch line hatch showing through it. Both the wrapper and the mark size

@@ -6,13 +6,13 @@ type Abuse = {
   tag: string;
   title: string;
   body: string;
-  code: string;
-  stat: string;
+  label: string;
+  when: string;
   video: string;
   poster: string;
 };
 
-/* One card per abuse category. Real clips drop into /public/abuse/<name>.mp4 (with a
+/* One card per category. Real clips drop into /public/abuse/<name>.mp4 (with a
    matching /public/abuse/<name>.jpg poster) later with no code change — the video paths
    are already wired here. Card 1 points at the existing /hero.mp4 so the play/replay
    interaction is verifiable in dev; swap it to /abuse/donuts.* once the real clip
@@ -23,42 +23,45 @@ type Abuse = {
    `poster` at its /abuse/<name>.jpg alongside the video. `preload="none"` means the
    missing videos aren't fetched until a card is actually clicked.
 
-   Held-back categories (add when we have footage): overspeed, impact / curb strike,
-   tamper / power-loss, money shift / over-rev, cold-start revving (no warm-up),
-   harsh cornering / drift, geofence breach, excessive idling. */
+   The overlay chips read as plain language on purpose — `label` is what a person
+   would call it, `when` is how fast they found out. The internal event codes and
+   signal thresholds (DONUTS, yaw °/s, g-force) belong on /technology, not here.
+
+   Held-back categories (add when we have footage): overspeed, tamper / power-loss,
+   money shift, cold-start revving, drift, geofence breach, excessive idling. */
 const TEMP_POSTER = "/gtr.png";
 
 const abuse: Abuse[] = [
   {
-    tag: "Donuts / burnouts",
-    title: "cars doing donuts",
-    body: "Sustained yaw with wheel-spin and no forward progress — the signature of someone treating a parking lot like a skidpad.",
-    code: "DONUTS",
-    stat: "yaw 47°/s · wheel-spin",
+    tag: "Burnouts & donuts",
+    title: "using the lot as a skidpad",
+    body: "Tires spinning, car going nowhere. You find out while it's still happening — not from the tread depth three weeks later.",
+    label: "Burnout",
+    when: "you knew 1.4s in",
     video: "/hero.mp4",
     poster: TEMP_POSTER,
   },
   {
     tag: "Redline launches",
-    title: "launched off the line",
-    body: "Full-throttle from a standstill against a redline RPM read straight off the bus. No launch-control excuse survives the data.",
-    code: "REDLINE_LAUNCH",
-    stat: "6800 RPM from stop",
+    title: "launched it off the line",
+    body: "Full throttle from a standstill, at revs the engine was never meant to see. Every one of them logged, timed and placed.",
+    label: "Redline launch",
+    when: "you knew before 2nd gear",
     video: "/abuse/redline-launch.mp4",
     poster: TEMP_POSTER,
   },
   {
-    tag: "Harsh braking / accel",
-    title: "standing on the brakes",
-    body: "A hard deceleration spike the IMU catches and the CAN-bus speed drop confirms — cross-checked, not guessed.",
-    code: "HARSH_BRAKE",
-    stat: "-0.82g sustained",
+    tag: "Hard stops & impacts",
+    title: "hit something and kept driving",
+    body: "A stop hard enough to move things around inside the car. You hear about it that second, instead of when the damage turns up.",
+    label: "Impact",
+    when: "you knew before they parked",
     video: "/abuse/harsh-brake.mp4",
     poster: TEMP_POSTER,
   },
 ];
 
-function AbuseVideoCard({ tag, title, body, code, stat, video, poster }: Abuse) {
+function AbuseVideoCard({ tag, title, body, label, when, video, poster }: Abuse) {
   const ref = useRef<HTMLVideoElement>(null);
   const [state, setState] = useState<"idle" | "playing" | "ended">("idle");
 
@@ -89,10 +92,10 @@ function AbuseVideoCard({ tag, title, body, code, stat, video, poster }: Abuse) 
         />
 
         <div className="pointer-events-none absolute left-3 top-3 rounded bg-card/80 px-2 py-1 font-mono text-[11px] uppercase text-primary backdrop-blur">
-          {code}
+          {label}
         </div>
         <div className="pointer-events-none absolute bottom-3 left-3 rounded bg-card/80 px-2 py-1 font-mono text-[11px] text-muted-foreground backdrop-blur">
-          {stat}
+          {when}
         </div>
 
         {state !== "playing" && (
@@ -123,17 +126,17 @@ export function AbuseCards() {
     <section id="abuse" className="border-b border-border">
       <div className="mx-auto max-w-7xl px-6 pt-24 text-center">
         <h2 className="mx-auto max-w-3xl text-5xl font-medium tracking-tight md:text-6xl">
-          watch the abuse{" "}
-          <span className="font-normal italic text-muted-foreground">as it happens.</span>
+          this is what you&apos;d{" "}
+          <span className="font-normal italic text-muted-foreground">have missed.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-[16px] text-muted-foreground">
-          Replay each clip to see exactly what the Core flagged on the bus — and the
-          signal that gave it away.
+          Press play on any of them. Canary catches all three the second they happen —
+          and plenty more besides.
         </p>
       </div>
       <div className="mx-auto grid max-w-7xl gap-8 px-6 pb-24 pt-16 md:grid-cols-3">
         {abuse.map((a) => (
-          <AbuseVideoCard key={a.code} {...a} />
+          <AbuseVideoCard key={a.label} {...a} />
         ))}
       </div>
     </section>

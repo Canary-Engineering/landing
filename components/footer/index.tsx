@@ -10,7 +10,7 @@ const groups: LinkGroup[] = [
     heading: "Company",
     items: [
       { title: "About", href: "/about" },
-      { title: "Pricing", href: "/pricing" },
+      { title: "Technology", href: "/technology" },
       { title: "Branding", href: "/branding" },
       { title: "Contact us", href: "/contact" },
     ],

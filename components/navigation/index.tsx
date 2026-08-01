@@ -13,9 +13,9 @@ import { cn } from "@/lib/utils";
 type NavLink = { title: string; href: string };
 
 const navLinks: NavLink[] = [
-  { title: "How it works", href: "#abuse" },
-  { title: "Product", href: "/drivesense" },
-  { title: "Pricing", href: "/pricing" },
+  { title: "What it catches", href: "/#abuse" },
+  { title: "Who it's for", href: "/#who" },
+  { title: "Technology", href: "/technology" },
   { title: "About", href: "/about" },
 ];
 

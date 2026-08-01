@@ -18,9 +18,9 @@ function NotificationMock() {
           </span>
           <span className="text-[12px] text-muted-foreground">now</span>
         </div>
-        <div className="mt-0.5 text-[14px] font-semibold">Abuse detected · VIN ···4471</div>
+        <div className="mt-0.5 text-[14px] font-semibold">Burnout — your Civic, Ashburn</div>
         <p className="text-[13px] leading-snug text-muted-foreground">
-          Donuts — sustained yaw 47°/s in the Ashburn lot. Evidence bundled. Tap to review.
+          11 seconds of wheelspin, two minutes ago. Tap to see it.
         </p>
       </div>
     </div>
@@ -38,9 +38,9 @@ export function Notifications() {
             <span className="font-normal italic text-muted-foreground">the excuse.</span>
           </h2>
           <p className="mt-6 max-w-md text-[16px] leading-relaxed text-muted-foreground">
-            The instant the Core flags abuse, it&apos;s on your phone — the event, where it
-            happened, and the CAN evidence behind it, in seconds. You know before the driver
-            can explain it away.
+            The second Canary sees something, your phone knows. What happened, where, and
+            the proof to go with it — while it&apos;s still happening, not once somebody has
+            had time to think of a story.
           </p>
         </div>
 

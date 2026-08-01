@@ -1,5 +1,6 @@
 import { WaitlistModalButton } from "@/components/ui/waitlistmodal";
 import { CanDataField } from "@/components/home/widgets";
+import { AbuseWordCycle } from "@/components/prelaunch/word-cycle";
 
 export function PreLaunchHero() {
   return (
@@ -7,15 +8,16 @@ export function PreLaunchHero() {
       <CanDataField />
       <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-24">
         <h1 className="max-w-4xl text-[64px] font-medium leading-[0.95] tracking-[-0.04em] md:text-[92px]">
-          see every abuse event
+          see every
+          <br />
+          <AbuseWordCycle />
           <br />
           <span className="font-normal italic">the instant it happens.</span>
         </h1>
 
         <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
-          Canary Core reads the CAN bus and classifies abuse at the edge — donuts,
-          redline launches, harsh braking, tamper. Built for fleets, rentals and owners
-          who need to know. Join the waitlist.
+          Canary lives behind the dash and tells you where your car is, how it&apos;s
+          being driven, and the second anyone touches it. One car, or a thousand.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export function TopBanner() {
   const [open, setOpen] = useState(true);
@@ -11,13 +12,15 @@ export function TopBanner() {
         <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary/90 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-primary-foreground sm:text-[11px]">
           New
         </span>
-        <span className="truncate opacity-90">Canary is in private preview — join the waitlist</span>
-        <a
-          href="#abuse"
+        <span className="truncate opacity-90">
+          Canary is in private preview — join the waitlist for early access
+        </span>
+        <Link
+          href="/#abuse"
           className="hidden shrink-0 underline decoration-background/40 underline-offset-4 opacity-90 hover:opacity-100 sm:inline"
         >
-          See it happen →
-        </a>
+          See what it catches →
+        </Link>
         <button
           onClick={() => setOpen(false)}
           aria-label="Dismiss"

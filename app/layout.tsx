@@ -9,9 +9,9 @@ import Footer from "@/components/footer";
 import { TopBanner } from "@/components/top-banner";
 
 export const metadata: Metadata = {
-  title: "Canary | Real-time vehicle abuse detection",
+  title: "Canary | See every incident the instant it happens",
   description:
-    "Canary Core reads the CAN bus and catches vehicle abuse the instant it happens — built for fleets, rentals and owners who need to know.",
+    "Canary lives behind the dash and tells you where your car is, how it's being driven, and the second anyone touches it. Built for rental hosts, fleets and owners. One car, or a thousand.",
 };
 
 export default function RootLayout({

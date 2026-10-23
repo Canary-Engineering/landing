@@ -4,11 +4,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { site } from "@/lib/site";
 
 const faqs: [string, string][] = [
   [
     "What exactly is Canary?",
-    "Canary Core is a sealed device that reads your vehicle's CAN bus and classifies abuse the instant it happens — donuts, redline launches, harsh braking, overspeed, impact and tamper — then sends the event with the evidence behind it. Built for fleets, rentals and owners who need to know what happened, not guess.",
+    "Canary Core is a sealed device that reads your vehicle's CAN bus and classifies abuse the instant it happens — donuts, redline launches, harsh braking, overspeed, impact & tamper — then sends the event with the evidence behind it. Built for fleets, rentals & owners who need to know what happened, not guess.",
   ],
   [
     "What counts as an abuse event?",
@@ -28,13 +29,13 @@ const faqs: [string, string][] = [
   ],
   [
     "When does it ship, and how do I get early access?",
-    "Canary is in private preview. Join the waitlist and we'll reach out with early-access details and timing for your fleet, rental operation or vehicle.",
+    `Canary is in private preview. Email ${site.email} with a bit about your fleet, rental operation or vehicle and we'll follow up with early-access details & timing.`,
   ],
 ];
 
 export function Faq() {
   return (
-    <section id="faq" className="border-b border-border">
+    <section id="faq" className="scroll-mt-20 border-b border-border">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-24 md:grid-cols-3 md:gap-16">
         <div className="md:col-span-1">
           <h2 className="text-4xl font-medium tracking-tight md:text-5xl">

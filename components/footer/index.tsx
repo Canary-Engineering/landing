@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Canary } from "@/components/ui/icons";
+import { site } from "@/lib/site";
 
 type LinkGroup = { heading: string; items: { title: string; href: string }[] };
 
@@ -10,15 +11,14 @@ const groups: LinkGroup[] = [
     heading: "Company",
     items: [
       { title: "About", href: "/about" },
-      { title: "Pricing", href: "/pricing" },
-      { title: "Branding", href: "/branding" },
-      { title: "Contact us", href: "/contact" },
+      { title: "Contact", href: "/contact" },
+      { title: "FAQ", href: "/#faq" },
     ],
   },
   {
     heading: "Legal",
     items: [
-      { title: "Terms of Service", href: "/terms" },
+      { title: "Terms of Use", href: "/terms" },
       { title: "Privacy Policy", href: "/privacy" },
     ],
   },
@@ -31,11 +31,14 @@ export default function Footer() {
         {/* Brand column: mark pinned top, copyright pinned bottom. */}
         <div className="flex flex-col justify-between gap-10 md:col-span-2">
           <Link href="/" aria-label="Canary" className="inline-flex">
-            <Canary className="h-20 w-auto fill-primary" />
+            <Canary aria-hidden className="h-20 w-auto fill-primary" />
           </Link>
-          <span className="text-[13px] text-muted-foreground">
-            Copyright © Halvex Inc 2025, All rights reserved
-          </span>
+          <div className="space-y-1 text-[13px] text-muted-foreground">
+            <a href={`mailto:${site.email}`} className="block transition-colors hover:text-primary">
+              {site.email}
+            </a>
+            <p>© {new Date().getFullYear()} {site.company} All rights reserved.</p>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:col-span-4 md:grid-cols-2">
@@ -65,7 +68,7 @@ export default function Footer() {
       <div className="canary-signature-wrap relative overflow-hidden">
         <Link
           href="/"
-          aria-label="Canary"
+          aria-hidden
           tabIndex={-1}
           className="canary-signature absolute left-1/2 top-0 block -translate-x-1/2 transition-opacity hover:opacity-80"
         />

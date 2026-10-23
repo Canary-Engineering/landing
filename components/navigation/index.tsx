@@ -13,9 +13,9 @@ import { cn } from "@/lib/utils";
 type NavLink = { title: string; href: string };
 
 const navLinks: NavLink[] = [
-  { title: "How it works", href: "#abuse" },
-  { title: "Product", href: "/drivesense" },
-  { title: "Pricing", href: "/pricing" },
+  { title: "How it works", href: "/#abuse" },
+  { title: "Security", href: "/#security" },
+  { title: "FAQ", href: "/#faq" },
   { title: "About", href: "/about" },
 ];
 
@@ -56,7 +56,7 @@ export default function NavigationFrame() {
             <Link
               key={l.title}
               href={l.href}
-              className="text-[14px] text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-sm text-[14px] text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             >
               {l.title}
             </Link>

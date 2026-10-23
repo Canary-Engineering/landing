@@ -54,13 +54,10 @@ export function Security() {
   return (
     <section
       id="security"
-      className="canary-noise relative overflow-hidden border-b border-border bg-[#0c0a09] text-white"
+      className="canary-noise relative scroll-mt-16 overflow-hidden border-b border-border bg-[#0c0a09] text-white"
     >
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-16 md:py-32">
         <div>
-          <div className="mb-4 font-mono text-[12px] uppercase tracking-widest text-primary">
-            Tamper &amp; security
-          </div>
           <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
             cut the power.{" "}
             <span className="font-normal italic text-white/60">it still reports.</span>
@@ -75,7 +72,7 @@ export function Security() {
             {features.map(({ icon: Icon, t, d }) => (
               <div key={t}>
                 <div className="mb-3 grid h-9 w-9 place-items-center rounded-lg bg-primary/15 text-primary">
-                  <Icon className="h-[18px] w-[18px]" />
+                  <Icon aria-hidden className="h-[18px] w-[18px]" />
                 </div>
                 <div className="mb-1 text-[15px] font-medium">{t}</div>
                 <p className="text-[13.5px] leading-relaxed text-white/60">{d}</p>

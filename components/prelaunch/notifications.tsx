@@ -1,15 +1,15 @@
 import { Canary } from "@/components/ui/icons";
 
-/* Placeholder iOS-style notification. When the real screenshot exists, replace
-   <NotificationMock /> in the right panel below with:
-     <img src="/notification.png" alt="Canary abuse alert on iOS"
-          className="mx-auto w-full max-w-sm rounded-[22px] shadow-lg" />
-   Drop the file into /public/notification.png (or .webp). */
+/* Illustrative iOS-style push notification, drawn in markup so it themes with the page. */
 function NotificationMock() {
   return (
-    <div className="mx-auto flex max-w-sm items-start gap-3 rounded-[22px] border border-border bg-background/90 p-4 shadow-lg backdrop-blur">
+    <div
+      role="img"
+      aria-label="Example Canary push notification: abuse detected, donuts in a parking lot, evidence bundled."
+      className="mx-auto flex max-w-sm items-start gap-3 rounded-[22px] border border-border bg-background/90 p-4 shadow-lg backdrop-blur"
+    >
       <div className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-primary">
-        <Canary className="h-5 w-auto fill-primary-foreground" />
+        <Canary aria-hidden className="h-5 w-auto fill-primary-foreground" />
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline justify-between gap-2">

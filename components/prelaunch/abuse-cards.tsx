@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Play, RotateCcw } from "lucide-react";
 
 type Abuse = {
   tag: string;
@@ -34,7 +35,7 @@ const abuse: Abuse[] = [
     title: "launched off the line",
     body: "Full-throttle from a standstill against a redline RPM read straight off the bus. No launch-control excuse survives the data.",
     code: "REDLINE_LAUNCH",
-    stat: "6800 RPM from stop",
+    stat: "6,800 RPM from stop",
     video: "/abuse/redline-launch.mp4",
     poster: "/abuse/redline-launch.jpg",
   },
@@ -43,7 +44,7 @@ const abuse: Abuse[] = [
     title: "standing on the brakes",
     body: "A hard deceleration spike the IMU catches and the CAN-bus speed drop confirms — cross-checked, not guessed.",
     code: "HARSH_BRAKE",
-    stat: "-0.82g sustained",
+    stat: "−0.82 g sustained",
     video: "/abuse/harsh-brake.mp4",
     poster: "/abuse/harsh-brake.jpg",
   },
@@ -53,9 +54,9 @@ function AbuseVideoCard({ tag, title, body, code, stat, video, poster }: Abuse) 
   const ref = useRef<HTMLVideoElement>(null);
   const [state, setState] = useState<"idle" | "playing" | "ended">("idle");
 
-  // Only advance to "playing" once playback actually starts. If the source is missing
-  // (placeholder cards) or the codec is unsupported, play() rejects and we leave the
-  // overlay button in place instead of hiding it over a blank well.
+  // Only advance to "playing" once playback actually starts. If the codec is
+  // unsupported, play() rejects and we leave the overlay button in place instead of
+  // hiding it over a blank well.
   const start = () => {
     ref.current?.play().then(() => setState("playing")).catch(() => {});
   };
@@ -75,6 +76,7 @@ function AbuseVideoCard({ tag, title, body, code, stat, video, poster }: Abuse) 
           preload="none"
           poster={poster}
           src={video}
+          aria-label={`${tag} clip`}
           className="h-full w-full object-cover"
           onEnded={() => setState("ended")}
         />
@@ -91,10 +93,14 @@ function AbuseVideoCard({ tag, title, body, code, stat, video, poster }: Abuse) 
             type="button"
             onClick={state === "ended" ? replay : play}
             aria-label={state === "ended" ? `Replay ${tag} clip` : `Play ${tag} clip`}
-            className="absolute inset-0 grid place-items-center transition-colors hover:bg-foreground/5"
+            className="group absolute inset-0 grid place-items-center transition-colors hover:bg-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
           >
-            <span className="grid h-14 w-14 place-items-center rounded-full bg-foreground text-[18px] text-background shadow-lg">
-              {state === "ended" ? "↻" : "▶"}
+            <span className="grid h-14 w-14 place-items-center rounded-full bg-foreground text-background shadow-lg transition-transform group-hover:scale-105">
+              {state === "ended" ? (
+                <RotateCcw aria-hidden className="h-5 w-5" />
+              ) : (
+                <Play aria-hidden className="ml-0.5 h-5 w-5 fill-current" />
+              )}
             </span>
           </button>
         )}
@@ -111,9 +117,9 @@ function AbuseVideoCard({ tag, title, body, code, stat, video, poster }: Abuse) 
 
 export function AbuseCards() {
   return (
-    <section id="abuse" className="border-b border-border">
+    <section id="abuse" className="scroll-mt-16 border-b border-border">
       <div className="mx-auto max-w-7xl px-6 pt-24 text-center">
-        <h2 className="mx-auto max-w-3xl text-5xl font-medium tracking-tight md:text-6xl">
+        <h2 className="mx-auto max-w-3xl text-balance text-5xl font-medium tracking-tight md:text-6xl">
           watch the abuse{" "}
           <span className="font-normal italic text-muted-foreground">as it happens.</span>
         </h2>

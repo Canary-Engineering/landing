@@ -1,12 +1,10 @@
-import { Play } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 import { ContactButton } from "@/components/contact-button";
-import { CanDataField } from "@/components/prelaunch/can-data-field";
 
 export function PreLaunchHero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      <CanDataField />
       <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-24">
         <h1 className="max-w-4xl text-balance text-[56px] font-medium leading-[0.95] tracking-[-0.04em] sm:text-[64px] md:text-[92px]">
           see every abuse event
@@ -15,21 +13,21 @@ export function PreLaunchHero() {
         </h1>
 
         <p className="mt-8 max-w-xl text-pretty text-[17px] leading-relaxed text-muted-foreground">
-          Canary Core reads the CAN bus and classifies abuse at the edge — donuts,
-          redline launches, harsh braking, tamper. Built for fleets, rentals &amp; owners
-          who need to know.
+          Canary plugs into your car and catches abuse the moment it happens — donuts,
+          launches, hard braking, tampering. Built for fleets, rentals &amp; owners who
+          need to know.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6">
           <ContactButton />
           <a
-            href="#abuse"
+            href="#how-it-works"
             className="group inline-flex items-center gap-2 rounded-full text-[14px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-background transition-transform group-hover:scale-105">
-              <Play aria-hidden className="h-3 w-3 fill-current" />
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-background transition-transform group-hover:translate-y-0.5">
+              <ArrowDown aria-hidden className="h-3.5 w-3.5" />
             </span>
-            See it happen
+            How it works
           </a>
         </div>
       </div>

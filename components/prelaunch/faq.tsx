@@ -9,27 +9,27 @@ import { site } from "@/lib/site";
 const faqs: [string, string][] = [
   [
     "What exactly is Canary?",
-    "Canary Core is a sealed device that reads your vehicle's CAN bus and classifies abuse the instant it happens — donuts, redline launches, harsh braking, overspeed, impact & tamper — then sends the event with the evidence behind it. Built for fleets, rentals & owners who need to know what happened, not guess.",
+    "A small device that plugs into your car and alerts you the moment it's abused — donuts, launches, hard braking, speeding or tampering — with the proof attached. Built for fleets, rentals & owners who need to know what happened, not guess.",
   ],
   [
-    "What counts as an abuse event?",
-    "Anything the Core can prove off the bus and the IMU: sustained wheel-spin and yaw (donuts), full-throttle redline launches, hard braking or acceleration, speed over a set limit, sharp g-force spikes from impacts or curb strikes, and tamper attempts like a harness pull or power loss.",
+    "What counts as abuse?",
+    "Hard braking, hard acceleration and cornering, speeding past a limit you set, donuts, launches at the redline, and anyone unplugging the device or cutting the car's power.",
   ],
   [
-    "Does it need cell coverage to work?",
-    "No. Detection runs on the Core itself, at the edge — so it keeps classifying events in tunnels, garages and dead zones where cloud-based trackers go blind. It reports as soon as it has a connection, and falls back to its own backup path if the vehicle's power is cut.",
+    "Does it need cell signal to work?",
+    "No. Canary spots abuse right there in the car, so it keeps working in tunnels, garages and dead zones. Alerts are saved and sent the moment it's back in signal — nothing gets lost.",
   ],
   [
-    "How is the evidence trustworthy?",
-    "Every event ships with the CAN frames, GPS trace and g-force curve that triggered it — cross-checked against multiple signals, not a single guess. Disputes end at the data instead of one person's word against another's.",
+    "Why should I trust the alerts?",
+    "Every alert comes with when and where it happened and what the car was doing, checked against more than one source. A security chip signs each one, so no one can fake or edit it later.",
   ],
   [
     "Is it hard to install?",
-    "No. It's one sealed connector to the harness — no splicing, no dealer visit. Additional Nodes, like the Starter Immobilizer, pair over the same connector whenever you add them.",
+    "No. It plugs into the diagnostic port under the dashboard — no wiring, no dealer visit. Add-ons like the Starter Immobilizer plug into the same unit.",
   ],
   [
     "When does it ship, and how do I get early access?",
-    `Canary is in private preview. Email ${site.email} with a bit about your fleet, rental operation or vehicle and we'll follow up with early-access details & timing.`,
+    `Canary is in private preview. Email ${site.email} with a bit about your fleet, rental business or car and we'll follow up with early-access details & timing.`,
   ],
 ];
 

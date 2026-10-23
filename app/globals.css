@@ -171,18 +171,6 @@ body {
   opacity: 0.04;
 }
 
-@keyframes canary-fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.canary-fade-up {
-  opacity: 0;
-  animation: canary-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-@keyframes canary-draw-line {
-  from { stroke-dashoffset: var(--line-length, 1000); }
-  to { stroke-dashoffset: 0; }
-}
 
 /* Footer brand signature. The wordmark is real outlines — /canary-wordmark.svg,
    generated from the Neue Haas Medium wordmark cut — used as a mask, with a
@@ -221,29 +209,3 @@ body {
   mask-repeat: no-repeat;
 }
 
-/* Hero CAN-data field: a soft radial mask drifts across the glow layer, lighting
-   whichever characters fall inside it. Masking (rather than repainting spans)
-   keeps this on the compositor — no per-frame React work. */
-.canary-can-glow {
-  color: var(--canary-pink);
-  text-shadow: 0 0 6px rgba(255, 0, 73, 0.55);
-  -webkit-mask-image: radial-gradient(circle at center, black 0%, rgba(0,0,0,0.45) 42%, transparent 68%);
-  mask-image: radial-gradient(circle at center, black 0%, rgba(0,0,0,0.45) 42%, transparent 68%);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 48% 64%;
-  mask-size: 48% 64%;
-  -webkit-mask-position: 4% 8%;
-  mask-position: 4% 8%;
-  animation: canary-glow-drift 24s ease-in-out infinite;
-}
-@keyframes canary-glow-drift {
-  0%   { -webkit-mask-position: 4% 8%;   mask-position: 4% 8%; }
-  25%  { -webkit-mask-position: 88% 24%; mask-position: 88% 24%; }
-  50%  { -webkit-mask-position: 64% 92%; mask-position: 64% 92%; }
-  75%  { -webkit-mask-position: 14% 66%; mask-position: 14% 66%; }
-  100% { -webkit-mask-position: 4% 8%;   mask-position: 4% 8%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .canary-can-glow { animation: none; }
-}

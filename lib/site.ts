@@ -4,7 +4,7 @@ export const site = {
   company: "Canary Inc.",
   email: "support@halvex.net",
   description:
-    "Canary Core reads the CAN bus and catches vehicle abuse the instant it happens — built for fleets, rentals & owners who need to know.",
+    "Canary plugs into your car and catches abuse the moment it happens — built for fleets, rentals & owners who need to know.",
 } as const;
 
 export const mailto = (subject?: string) =>

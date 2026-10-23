@@ -16,11 +16,11 @@ const values = [
   },
   {
     t: "Reliability",
-    d: "Telematics only matter if the data holds up every time: cross-checked signals, signed messages, nothing dropped offline.",
+    d: "An alert only matters if you can trust it — every time, even when the car is out of signal.",
   },
   {
     t: "Simplicity",
-    d: "One sealed connector, no splicing, no dealer visit. The hard part happens on the device, not on your side.",
+    d: "Plug it in and you're done. No wiring, no dealer visit, no learning curve.",
   },
 ];
 
@@ -43,9 +43,8 @@ export default function AboutPage() {
               eat the cost because they can&apos;t prove what happened.
             </p>
             <p className="text-pretty">
-              Canary changes that. Canary Core reads the vehicle&apos;s own data off the
-              CAN bus, classifies abuse on the device the moment it happens, and sends
-              the event with the signed evidence behind it — so the answer to
+              Canary changes that. It plugs into the car, spots abuse the moment it
+              happens, and sends you the proof — so the answer to
               &ldquo;what happened out there?&rdquo; is a record, not an argument.
             </p>
           </div>

@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 
-import { mailto } from "@/lib/site";
-
 export function TopBanner() {
   const [open, setOpen] = useState(true);
   if (!open) return null;
@@ -15,12 +13,6 @@ export function TopBanner() {
           Preview
         </span>
         <span className="truncate opacity-90">Canary is in private preview</span>
-        <a
-          href={mailto("Canary early access")}
-          className="hidden shrink-0 underline decoration-background/40 underline-offset-4 opacity-90 hover:opacity-100 sm:inline"
-        >
-          Request early access →
-        </a>
         <button
           type="button"
           onClick={() => setOpen(false)}
